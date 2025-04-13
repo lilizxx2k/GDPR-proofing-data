@@ -2,6 +2,9 @@
 
 ## Disclaimer
 
-## Description 
+## Project description 
+### Data origin
+### Data purpose
+### GDPR guideliens
 
 ## Steps to clean the data
