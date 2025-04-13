@@ -3,42 +3,70 @@
 ## Disclaimer
 The data used in this project is fake and was generated for examination purposes by the University of Copenhagen. 
 ## Project description 
-In this project, I will ensure that the data is useable under GDPR guidelines. 
+In this project, I will ensure that the data is useable under the GDPR. This process involves anonymization techniques as well as filtering the data for what is relevant to keep. 
 ### Data origin
 The excel file contains three data sheets. The first (...) is data collected using an online survey. The second (...) is data scraped from X and the third (...) is a found dataset that was obtained from a news ... website. 
 ### Data purpose
 The proposed purpose of the data is to conduct a social data science project which examines .... 
 ### GDPR guidelines
-In order to legally use this data, it is important to consider various 
-1. Anonymity: brackets
-2. 
+In order to legally use this data, it is important to consider the various GDPR principles. In the following I explain how I aim to adhere to each one: 
+1. Lawfulness, Fairness, and Transparency:
+   * GDPR allows for the age of consent to be set by EU member-states (GDPR, 2016, 8(1)). To comply with the Danish Data Protection Act (2018), I include participants who are over the age of 13 at the time of the survey and keep only the comments of the participants who were over the age of 13 when the comments were posted.
+   * To uphold the principle of transparency, participants must be informed of the data and analysis processes.
+   * Potentially illegally obtained information (such as credit card numbers) cannot be used and must not be collected in the first place, which is why I remove this variable.
+5. Purpose Limitation: I create income and birth year brackets to further prevent the possibility of reidentification to reduce granularity, thereby balancing anonymity and data utility.
+6. Data Minimisation: . any data that is not necessary for the research purpose should be removed. In this case, it includes variables such as phone numbers and geolocation.
+7. Integrity and Confidentiality: it is important to anonymize participants by erasing their names and instead identifying them with a randomly generated identifier. Additionally, to prevent the comments from being traced back to the data subject, it is important to paraphrase them before making the data available to any other party for replication or other purposes. To avoid a conflict with the principle of accuracy, this should be done in a way that the meaning of the original comment is not compromised. 
+8. Accountability: 
 
 ## Variables before data cleaning 
+### Variables from Dataset 1 (Survey)
+* Name - partcipants' first and last name  
+* Birth year - the participants' year of birth
+* Occupation - the current occupation practiced by the participant
+* Education - the highest level of education completed by the participant
+* Monthly income (DKK) - monthly income in Danish Krona
+* Political orientation - political orientation that the participant most identifies with
+* Religious belief - religion that the participant identifies with
+* "How much do you pay for online news subscriptions per month (in DKK)"? - the answer to this question as recorded in the survey
+* "On a scale from 1-5, how much do engage with news sources on social media?" - the answer to this question as recorded in the survey
+### Variables from Dataset 2 (Twitter Data)
+* Comment # - number to identify the comment
+* Profile name - the twitter username of the participant 
+* date - the date which the comment was posted
+* comment - the content of the comment as posted by the participant
+### Variables from Dataset 3 (Found dataset)
+* 
 
 ## Variables after data cleaning
 * Anonymized_name - randomly generated identifier
 ### Variables (derived) from the online survey
-* Occupation - 
-* Education - 
+* Occupation - the current occupation practiced by the participant
+* Education - the highest level of education completed by the participant
 * Political_orientation - political orientation that the participant most identifies with
 * Religious_belief - religion that the participant identifies with
-* Extent_of_engagement - answer to the question '...' 
+* Extent_of_engagement - answer to the question "On a scale from 1-5, how much do engage with news sources on social media?"
 * Birth_year_bracket - birth year bracket in steps of ten years ranging from to 2011 (the last bracket encompasses 11 years, namely 2000-2011)
-* Income_bracket_usd - monthly income bracket in steps of 2k ranging from 0 to 30k usd
-* Price_of_subscriptions_in_usd - answer to the question '...'
+* Income_bracket_usd - monthly income bracket in steps of 2k ranging from 0 to 30k in USD
+* Price_of_subscriptions_in_usd - answer to the question "How much do you pay for online news subscriptions per month (in DKK)?"
+### Variable from Dataset 2 (Twitter Data)
+* Comment_paraphrased - the paraphrased version of the original comment made with regards to a news source on X
 ### Variable from the found data
 * Subscription - news source that the participant is subscribed to
-### Variable from the data scraped from X
-* Comment_paraphrased - the paraphrased version of the original comment made with regards to a news source on X 
 
 ## Steps to clean the data (also described in the ipynb file)
 To comply with the GDPR articles mentioned above, I clean the data in the following way (see ipynb file for code):
-1. Load and merge the data.
-2. Concerning the 'Birth year' column, I first remove participants born after 2012 and the comments of participants born after 2006. In this way I avoid including participants who are under the age of 13 in 2025 (the year in which the survey was conducted) and analyzing comments of participants who were under 13 in 2019 (the year in which the comments were posted). Next I create brackets of ten years to anonymize participants. The last bin consists of 11 years (2000-2011) to avoid the bin 2011-2019 only containing participants born in 2011. In this way I create the column 'birth_year_bracket'
+1. Firstly, I load the data and merge the three sheets into one dataframe.
+2. Concerning the 'Birth year' column, I remove participants born after 2012 and the comments of participants born after 2006. In this way I avoid including participants who are under the age of 13 in 2025 (the year in which the survey was conducted) and analyzing comments of participants who were under 13 in 2019 (the year in which the comments were posted). Next I create brackets of ten years to anonymize participants. The last bin consists of 11 years (2000-2011) to avoid the bin 2011-2019 only containing participants born in 2011. In this way I create the column 'birth_year_bracket'
 3. To modify monetary variables, I first convert DKK (Danish Krona) to USD. This not only helps to ensure anonymity but also international interpretability. I do this for the columns 'income' and '...', creating the new columns '...' and '...' respectively. Moreover, I create brackets of 2k USD for income ranging form 0 to 30 USD monthly salary.  
 4. Next, I generate random codes to replace participants real names.
 5. To ensure that the comments cannot be traced back to the participants, it is important to paraphrase them. This has been done by prompting a GPT4 model to rephrase the content whilst maintaining the message of the text. I then manually copied these to use as replacements for the original comments.
-6. Lastly I remove the unecessary data that may lead to reidentification. Additionally, I clean up the column names by removing quotation marks, simplifying titles, capitalizing, replacing symbols with words, replacing spaces with underscores, and making the 'Anonymized_name' identifier the first column before saving the dataset. 
+6. Lastly I remove the unecessary data that may lead to reidentification or sensitive data that was presumably obtained without informed consent of the data subject. I remove the following columns: 'Date of purchase', 'Geolocation', 'Credit card number', 'income_usd', '"How much do you pay for online news subscriptions per month (in DKK)"?', 'Telephone number', 'Number of Other Subscriptions', 'date', 'Monthly income (DKK)', 'Name', 'Birth year', 'comment', and 'Comment #'. Additionally, I clean up the column names by removing quotation marks, simplifying titles, capitalizing, replacing symbols with words, replacing spaces with underscores, and making the 'Anonymized_name' identifier the first column before saving the dataset. 
 
 ## Ethical considerations
+There are multiple ethical considerations to keep in mind in this process:
+1. Paraphrasing
+2. Consent
 
+## References
+General Data Protection Regulation. (2016). Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, L 119, 1–88. https://eur-lex.europa.eu/eli/reg/2016/679/oj
