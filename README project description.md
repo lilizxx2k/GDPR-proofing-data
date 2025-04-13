@@ -1,66 +1,87 @@
 # GDPR proofing a dataset
 
+In this project, I aim to ensure that the data is useable for a research project under the GDPR principles. 
+
 ## Disclaimer
 The data used in this project is fake and was generated for examination purposes by the University of Copenhagen. 
-## Project description 
-In this project, I will ensure that the data is useable under the GDPR. This process involves anonymization techniques as well as filtering the data for what is relevant to keep. 
-### Data origin
-The excel file contains three data sheets. The first (...) is data collected using an online survey. The second (...) is data scraped from X and the third (...) is a found dataset that was obtained from a news ... website. 
+
+### The data 
+The provided data is in the form of an excel file and contains three data sheets (see DG_Dataset.xlsx). The first sheet is 'Dataset 1 (Survey)'. This data collected using an online survey with informed consent of the participants. 'Dataset 2 (Twitter Data) consists of comments about news sources obtained from the twitter API. Note that this was collected in 2019 when the platform was still named twitter, which is why I refer to it as such throughout this project. Lastly, Dataset 3 (Found dataset) is a found dataset that was obtained from a news ... website. It is not specified exactly how this data was 'found'. For a full description of the variables in each of these datasets, see below: 'Variables before data cleaning'. 
+
 ### Data purpose
 The proposed purpose of the data is to conduct a social data science project which examines .... 
-### GDPR guidelines
-In order to legally use this data, it is important to consider the various GDPR principles. In the following I explain how I aim to adhere to each one: 
-1. Lawfulness, Fairness, and Transparency:
-   * GDPR allows for the age of consent to be set by EU member-states (GDPR, 2016, 8(1)). To comply with the Danish Data Protection Act (2018), I include participants who are over the age of 13 at the time of the survey and keep only the comments of the participants who were over the age of 13 when the comments were posted.
-   * To uphold the principle of transparency, participants must be informed of the data and analysis processes.
-   * Potentially illegally obtained information (such as credit card numbers) cannot be used and must not be collected in the first place, which is why I remove this variable.
-5. Storage Limitation:
-6. Purpose Limitation: I create income and birth year brackets to further prevent the possibility of reidentification to reduce granularity, thereby balancing anonymity and data utility.
-7. Data Minimisation: . any data that is not necessary for the research purpose should be removed. In this case, it includes variables such as phone numbers and geolocation.
-8. Integrity and Confidentiality: it is important to anonymize participants by erasing their names and instead identifying them with a randomly generated identifier. Additionally, to prevent the comments from being traced back to the data subject, it is important to paraphrase them before making the data available to any other party for replication or other purposes. To avoid a conflict with the principle of accuracy, this should be done in a way that the meaning of the original comment is not compromised. 
-9. Accuracy: to ensure accuracy and recency, participants should be informed of what data beyond the survey will be used for analaysis not only for consensual purposes but also to give them the opportunity to rectify out of date or wrong information. 
-10. Accountability: 
+
+### GDPR principles
+
+In order to legally use this data, it is important to consider the GDPR principles. In the following, I explain how I aim to adhere to each one: 
+
+1. **Lawfulness, Fairness, and Transparency**:
+   - GDPR allows for the age of consent to be set by EU member-states (GDPR, 2016, 8(1)). To comply with the Danish Data Protection Act (2018), I include participants who are over the age of 13 at the time of the survey and keep only the comments of the participants who were over the age of 13 when the comments were posted.
+   - To uphold the principle of transparency, participants must be informed of the data and analysis processes.
+   - Potentially illegally obtained information (such as credit card numbers) cannot be used and must not be collected in the first place, which is why I remove this variable.
+
+2. **Storage Limitation**:
+
+3. **Purpose Limitation**: I create income and birth year brackets to further prevent the possibility of reidentification to reduce granularity, thereby balancing anonymity and data utility.
+
+4. **Data Minimisation**: Any data that is not necessary for the research purpose should be removed. In this case, it includes variables such as phone numbers and geolocation.
+
+5. **Integrity and Confidentiality**: It is important to anonymize participants by erasing their names and instead identifying them with a randomly generated identifier. Additionally, to prevent the comments from being traced back to the data subject, it is important to paraphrase them before making the data available to any other party for replication or other purposes. To avoid a conflict with the principle of accuracy, this should be done in a way that the meaning of the original comment is not compromised. 
+
+6. **Accuracy**: To ensure accuracy and recency, participants should be informed of what data beyond the survey will be used for analysis, not only for consensual purposes but also to give them the opportunity to rectify out-of-date or wrong information. 
+
+7. **Accountability**: 
+
 
 ## Variables before data cleaning 
+
 ### Variables from Dataset 1 (Survey)
-* Name - the partcipants' first and last name  
-* Birth year - the participants' year of birth
-* Occupation - the current occupation practiced by the participant
-* Education - the highest level of education completed by the participant
-* Monthly income (DKK) - monthly income in Danish Krona
-* Political orientation - political orientation that the participant most identifies with
-* Religious belief - religion that the participant identifies with
-* "How much do you pay for online news subscriptions per month (in DKK)"? - the answer to this question as recorded in the survey
-* "On a scale from 1-5, how much do engage with news sources on social media?" - the answer to this question as recorded in the survey
+- `'Name'` - the participants' first and last name  
+- `'Birth year'` - the participants' year of birth  
+- `'Occupation'` - the current occupation practiced by the participant  
+- `'Education'` - the highest level of education completed by the participant  
+- `'Monthly income (DKK)'` - monthly income in Danish Krona  
+- `'Political orientation'` - political orientation that the participant most identifies with  
+- `'Religious belief'` - religion that the participant identifies with  
+- `'"How much do you pay for online news subscriptions per month (in DKK)"?'` - the answer to this question as recorded in the survey  
+- `'"On a scale from 1-5, how much do engage with news sources on social media?"'` - the answer to this question as recorded in the survey  
+
 ### Variables from Dataset 2 (Twitter Data)
-* Comment # - number to identify the comment
-* Profile name - the twitter username of the participant 
-* date - the date which the comment was posted
-* comment - the content of the original comment as posted by the participant
+- `'Comment #'` - number to identify the comment  
+- `'Profile name'` - the Twitter username of the participant  
+- `'date'` - the date which the comment was posted  
+- `'comment'` - the content of the original comment as posted by the participant  
+
 ### Variables from Dataset 3 (Found dataset)
-* 'Name' - the first and last name of the participant
-* 'Date of purchase' - the date which the subscription was purchased
-* 'Geolocation' - the location of the participant at the time which the subscription was purchased
-* 'Credit card number' - the number of the credit card used to purchase the news subscription
-* 'Telephone number' - phone number registered at the purchase of the transaction
-* 'Subscription' - the news source to which the participant subscribed
-* 'Number of Other Subscriptions' - the amount of subscriptions purchased by the participant apart form the one named in 'Subscription'
+- `'Name'` - the first and last name of the participant  
+- `'Date of purchase'` - the date which the subscription was purchased  
+- `'Geolocation'` - the location of the participant at the time which the subscription was purchased  
+- `'Credit card number'` - the number of the credit card used to purchase the news subscription  
+- `'Telephone number'` - phone number registered at the purchase of the transaction  
+- `'Subscription'` - the news source to which the participant subscribed  
+- `'Number of Other Subscriptions'` - the amount of subscriptions purchased by the participant apart from the one named in `'Subscription'`  
+
+---
 
 ## Variables after data cleaning
-* Anonymized_name - randomly generated identifier
+
+- `'Anonymized_name'` - randomly generated identifier  
+
 ### Variables (derived) from the online survey
-* Occupation - the current occupation practiced by the participant
-* Education - the highest level of education completed by the participant
-* Political_orientation - political orientation that the participant most identifies with
-* Religious_belief - religion that the participant identifies with
-* Extent_of_engagement - answer to the question "On a scale from 1-5, how much do engage with news sources on social media?"
-* Birth_year_bracket - birth year bracket in steps of ten years ranging from to 2011 (the last bracket encompasses 11 years, namely 2000-2011)
-* Income_bracket_usd - monthly income bracket in steps of 2k ranging from 0 to 30k in USD
-* Price_of_subscriptions_in_usd - answer to the question "How much do you pay for online news subscriptions per month (in DKK)?"
+- `'Occupation'` - the current occupation practiced by the participant  
+- `'Education'` - the highest level of education completed by the participant  
+- `'Political_orientation'` - political orientation that the participant most identifies with  
+- `'Religious_belief'` - religion that the participant identifies with  
+- `'Extent_of_engagement'` - answer to the question `"On a scale from 1-5, how much do you engage with news sources on social media?"`  
+- `'Birth_year_bracket'` - birth year bracket in steps of ten years ranging to 2011 (the last bracket encompasses 11 years, namely 2000–2011)  
+- `'Income_bracket_usd'` - monthly income bracket in steps of 2k ranging from 0 to 30k in USD  
+- `'Price_of_subscriptions_in_usd'` - answer to the question `"How much do you pay for online news subscriptions per month (in DKK)?"`  
+
 ### Variable from Dataset 2 (Twitter Data)
-* Comment_paraphrased - the paraphrased version of the original comment made with regards to a news source on X
+- `'Comment_paraphrased'` - the paraphrased version of the original comment made with regards to a news source on X  
+
 ### Variable from the found data
-* Subscription - news source that the participant is subscribed to
+- `'Subscription'` - news source that the participant is subscribed to  
 
 ## Steps to clean the data (also described in the ipynb file)
 To comply with the GDPR articles mentioned above, I clean the data in the following way (see ipynb file for code):
