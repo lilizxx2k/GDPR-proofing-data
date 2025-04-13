@@ -8,3 +8,7 @@
 ### GDPR guideliens
 
 ## Steps to clean the data
+
+## Variables before data cleaning 
+
+## Variables after data cleaning
