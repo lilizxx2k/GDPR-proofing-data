@@ -1,6 +1,6 @@
 # GDPR proofing a dataset
 
-In this project, I aim to ensure that the data is useable for a research project under the GDPR principles. 
+In this project, I aim to ensure that the data is useable for a research project under the GDPR principles. To do so I clean and process the data to make it ready for analysis and so that it can be shared within the academic community for replication purposes. 
 
 ## Disclaimer
 The data used in this project is fake and was generated for examination purposes by the University of Copenhagen. 
