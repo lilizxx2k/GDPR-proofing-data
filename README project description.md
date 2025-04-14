@@ -94,10 +94,10 @@ To comply with the GDPR articles mentioned above, I clean the data in the follow
 
 ## Ethical considerations
 There are multiple ethical considerations to keep in mind in this process:
-1. Paraphrasing may lose meaning (source)
-2. It is important to obtain informed consent from all participants retrospectively concerning all data. Twitter comments, for example, can be obtained without the 
+1. Firstly, it is important to obtain informed consent from all participants retrospectively concerning all data. Twitter comments, for example, can be obtained without the knowledge of the data subjects, which arguably diminishes their autonomy and control of the data process. 
+2. Secondly, paraphrasing comments is highly debated, as it is often impossible to convey the exact same message in different words. For this reason, it is important to obtain participants' approval of these paraphrased alternatives.
 3. Concerning 'Dataset 3 (Found dataset)', there is no specification on how the data was 'found'. Should it have been obtained in an illegal manner, it is important to remove this dataset, therefore also warranting the deletion of the 'Subscription' variable in the GDPR_proofed_data.
-4. Including participants age 13, whilst legal in Denmark, is debatable. Some may argue that informed consent is only valid from the age of 16. This is a highly subjective topic and important to keep in mind in any data science project. 
+4. Lastly, including participants age 13, whilst legal in Denmark, is debatable. Some may argue that informed consent is only valid from the age of 16. This is a highly subjective topic and important to keep in mind in any data science project. 
 
 ## References
 General Data Protection Regulation. (2016). Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, L 119, 1–88. https://eur-lex.europa.eu/eli/reg/2016/679/oj
