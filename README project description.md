@@ -6,7 +6,7 @@ In this project, I aim to ensure that the data is useable for a research project
 The data used in this project is fake and was generated for examination purposes by the University of Copenhagen. 
 
 ### The data 
-The provided data is in the form of an excel file and contains three data sheets (see DG_Dataset.xlsx). The first sheet is 'Dataset 1 (Survey)'. This data collected using an online survey with informed consent of the participants. 'Dataset 2 (Twitter Data) consists of comments about news sources obtained from the twitter API. Note that this was collected in 2019 when the platform was still named twitter, which is why I refer to it as such throughout this project. Lastly, Dataset 3 (Found dataset) is a found dataset that was obtained from a news ... website. It is not specified exactly how this data was 'found'. For a full description of the variables in each of these datasets, see below: 'Variables before data cleaning'. 
+The provided data is in the form of an excel file and contains three data sheets (see DG_Dataset.xlsx). The first sheet is 'Dataset 1 (Survey)'. This data collected using an online survey with informed consent of the participants. 'Dataset 2 (Twitter Data)' consists of comments about news sources obtained from the twitter API. Note that this was collected in 2019 when the platform was still named twitter, which is why I refer to it as such throughout this project. Lastly, 'Dataset 3 (Found dataset)' is a found dataset that was obtained from a news ... website. It is not specified exactly how this data was 'found'. For a full description of the variables in each of these datasets, see below: 'Variables before data cleaning'. 
 
 ### Data purpose
 The proposed purpose of the data is to conduct a social data science project which examines .... 
@@ -20,7 +20,7 @@ In order to legally use this data, it is important to consider the GDPR principl
    - To uphold the principle of transparency, participants must be informed of the data and analysis processes.
    - Potentially illegally obtained information (such as credit card numbers) cannot be used and must not be collected in the first place, which is why I remove this variable.
 
-2. **Storage Limitation**:
+2. **Storage Limitation**: The data should only be stored as long as necessary and deleted after it has fulfilled its purpose. 
 
 3. **Purpose Limitation**: I create income and birth year brackets to further prevent the possibility of reidentification to reduce granularity, thereby balancing anonymity and data utility.
 
@@ -30,7 +30,7 @@ In order to legally use this data, it is important to consider the GDPR principl
 
 6. **Accuracy**: To ensure accuracy and recency, participants should be informed of what data beyond the survey will be used for analysis, not only for consensual purposes but also to give them the opportunity to rectify out-of-date or wrong information. 
 
-7. **Accountability**: 
+7. **Accountability**: Alongside transparency on the data processing steps, it is important for the data processors to take full accountability for these actions. 
 
 
 ## Variables before data cleaning 
@@ -95,10 +95,11 @@ To comply with the GDPR articles mentioned above, I clean the data in the follow
 ## Ethical considerations
 There are multiple ethical considerations to keep in mind in this process:
 1. Paraphrasing may lose meaning (source)
-2. Consent (twitter data)
-3. Illegal obtaination 'found data' not certain how it was found - if illegal remove column subscription 
+2. It is important to obtain informed consent from all participants retrospectively concerning all data. Twitter comments, for example, can be obtained without the 
+3. Concerning 'Dataset 3 (Found dataset)', there is no specification on how the data was 'found'. Should it have been obtained in an illegal manner, it is important to remove this dataset, therefore also warranting the deletion of the 'Subscription' variable in the GDPR_proofed_data.
+4. Including participants age 13, whilst legal in Denmark, is debatable. Some may argue that informed consent is only valid from the age of 16. This is a highly subjective topic and important to keep in mind in any data science project. 
 
 ## References
 General Data Protection Regulation. (2016). Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, L 119, 1–88. https://eur-lex.europa.eu/eli/reg/2016/679/oj
-DDPA 
+Danish Data Protection Act, § 6(2) (2018). https://www.datatilsynet.dk/media/7753/danish-data-protection-act.pdf
 Salganik 
