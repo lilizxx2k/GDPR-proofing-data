@@ -100,6 +100,5 @@ There are multiple ethical considerations to keep in mind in this process:
 4. Lastly, including participants age 13, whilst legal in Denmark, is debatable. Some may argue that informed consent is only valid from the age of 16. This is a highly subjective topic and important to keep in mind in any data science project. 
 
 ## References
-General Data Protection Regulation. (2016). Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, L 119, 1–88. https://eur-lex.europa.eu/eli/reg/2016/679/oj
-Danish Data Protection Act, § 6(2) (2018). https://www.datatilsynet.dk/media/7753/danish-data-protection-act.pdf
-Salganik 
+* General Data Protection Regulation. (2016). Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, L 119, 1–88. https://eur-lex.europa.eu/eli/reg/2016/679/oj
+* Danish Data Protection Act, § 6(2) (2018). https://www.datatilsynet.dk/media/7753/danish-data-protection-act.pdf
